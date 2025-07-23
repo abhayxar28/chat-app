@@ -6,10 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "pnpm run build && node ./dist/index.js",
-    "start": "node ./dist/index.js",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
+    "start": "node ./dist/index.js"
   },
   "devDependencies": {
     "@repo/backend-common": "workspace:*",
