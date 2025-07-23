@@ -2,7 +2,7 @@
   "name": "@repo/http-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "dev": "pnpm run build && node ./dist/index.js",
