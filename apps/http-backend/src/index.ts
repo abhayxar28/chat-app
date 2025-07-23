@@ -11,9 +11,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use('/api/user', authenticateJWT, userRoutes)
-app.use('/api/rooms', authenticateJWT, roomRoutes)
-app.use('/api/messages', authenticateJWT, messageRoutes)
+app.use('/api/v1/user', authenticateJWT, userRoutes)
+app.use('/api/v1/rooms', authenticateJWT, roomRoutes)
+app.use('/api/v1/messages', authenticateJWT, messageRoutes)
 
 
 app.listen(PORT, ()=>{
