@@ -32,7 +32,7 @@ export default function ChatComponents() {
         }
       );
       setMessages(res.data.message);
-    } catch (err) {
+    } catch (err) { 
       console.error("Failed to fetch messages", err);
     } finally {
       setLoading(false);
