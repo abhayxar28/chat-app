@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "buildCommand": "pnpm build", 
   "builds": [
     {
       "src": "dist/index.js",
@@ -11,6 +12,5 @@
       "src": "/(.*)",
       "dest": "dist/index.js"
     }
-  ],
-  "buildCommand": "pnpm build"
+  ]
 }
