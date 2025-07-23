@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.post('/signup', async(req: AuthenticatedRequest, res: Response)=>{
+app.post('/api/signup', async(req: AuthenticatedRequest, res: Response)=>{
     const {email, password, name} = req.body;
 
     await prisma.user.create({
@@ -26,7 +26,7 @@ app.post('/signup', async(req: AuthenticatedRequest, res: Response)=>{
     })
 })
 
-app.post('/signin', async(req: AuthenticatedRequest, res: Response)=>{
+app.post('/api/signin', async(req: AuthenticatedRequest, res: Response)=>{
     const {email, password} = req.body;
 
     const user = await prisma.user.findUnique({
@@ -44,7 +44,7 @@ app.post('/signin', async(req: AuthenticatedRequest, res: Response)=>{
 })
 
 
-app.post('/rooms', authenticateJWT, async (req: AuthenticatedRequest, res: Response) => {
+app.post('/api/rooms', authenticateJWT, async (req: AuthenticatedRequest, res: Response) => {
   try {
     const { email } = req.body;
     const adminId = req.userId as string;
@@ -124,7 +124,7 @@ app.post('/rooms', authenticateJWT, async (req: AuthenticatedRequest, res: Respo
 });
 
 
-app.get('/rooms', authenticateJWT, async(req: AuthenticatedRequest, res: Response)=>{
+app.get('/api/rooms', authenticateJWT, async(req: AuthenticatedRequest, res: Response)=>{
     const rooms = await prisma.room.findMany({
         select: {
             id: true,
@@ -155,7 +155,7 @@ app.get('/rooms', authenticateJWT, async(req: AuthenticatedRequest, res: Respons
 })
 
 
-app.get('/messages/:roomId', authenticateJWT, async(req: AuthenticatedRequest, res: Response)=>{
+app.get('/api/messages/:roomId', authenticateJWT, async(req: AuthenticatedRequest, res: Response)=>{
     const roomId = req.params.roomId;
 
     const message = await prisma.chat.findMany({
@@ -173,7 +173,7 @@ app.get('/messages/:roomId', authenticateJWT, async(req: AuthenticatedRequest, r
     return res.json({message});
 })
 
-app.delete('/rooms/:roomId', authenticateJWT, async(req: AuthenticatedRequest, res: Response)=>{
+app.delete('/api/rooms/:roomId', authenticateJWT, async(req: AuthenticatedRequest, res: Response)=>{
   const roomId = Number(req.params.roomId);
 
   try{
@@ -207,7 +207,7 @@ app.delete('/rooms/:roomId', authenticateJWT, async(req: AuthenticatedRequest, r
   }
 })
 
-app.delete('/message/:chatId', authenticateJWT, async(req: AuthenticatedRequest, res: Response)=>{
+app.delete('/api/message/:chatId', authenticateJWT, async(req: AuthenticatedRequest, res: Response)=>{
   const chatId = Number(req.params.chatId);
 
   try{
