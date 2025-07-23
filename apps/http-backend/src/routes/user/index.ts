@@ -6,7 +6,7 @@ import { JWT_SECRET } from '@repo/backend-common/jwt';
 
 const router:Router = Router();
 
-router.post('/api/signup', async(req: AuthenticatedRequest, res: Response)=>{
+router.post('/signup', async(req: AuthenticatedRequest, res: Response)=>{
     const {email, password, name} = req.body;
 
     await prisma.user.create({
