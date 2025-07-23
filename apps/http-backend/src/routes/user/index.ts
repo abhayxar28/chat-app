@@ -21,7 +21,7 @@ router.post('/signup', async(req: AuthenticatedRequest, res: Response)=>{
     })
 })
 
-router.use('/signin', async(req: AuthenticatedRequest, res: Response)=>{
+router.post('/signin', async(req: AuthenticatedRequest, res: Response)=>{
     const {email, password} = req.body;
 
     const user = await prisma.user.findUnique({
