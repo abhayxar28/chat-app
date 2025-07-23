@@ -1,10 +1,33 @@
-# Turborepo starter
+# TurboChat Monorepo
 
-This Turborepo starter is maintained by the Turborepo core team.
+SocketTalk is a modern, full-stack chat application built with [Next.js](https://nextjs.org/) and managed as a monorepo using [Turborepo](https://turborepo.com/). This project demonstrates scalable architecture for real-time messaging, shared UI, and code reuse across multiple apps and packages.
 
-## Using this example
+## Features
 
-Run the following command:
+- **Real-time chat** with WebSocket backend
+- **User authentication** and session management
+- **Reusable UI components** across apps
+- **Type-safe** codebase using TypeScript
+- **Monorepo** structure for easy code sharing and collaboration
+
+## Monorepo Structure
+
+```
+apps/
+  web/           # Next.js frontend for chat UI
+  http-backend/  # REST API backend (Node.js)
+  ws-backend/    # WebSocket backend for real-time messaging
+packages/
+  ui/            # Shared React UI components
+  db/            # Database utilities and types
+  backend-common/# Shared backend logic and types
+  eslint-config/ # Shared ESLint config
+  typescript-config/ # Shared TypeScript config
+```
+
+## Getting Started
+
+Install dependencies from the root:
 
 ```sh
 npx create-turbo@latest
