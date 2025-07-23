@@ -1,5 +1,5 @@
 {
-  "name": "New folder",
+  "name": "new-folder",
   "private": true,
   "scripts": {
     "build": "turbo run build",
