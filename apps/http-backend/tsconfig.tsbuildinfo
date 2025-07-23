@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/types.ts","./src/middleware/index.ts","./src/routes/messages/index.ts","./src/routes/rooms/index.ts","./src/routes/user/index.ts"],"version":"5.8.3"}
