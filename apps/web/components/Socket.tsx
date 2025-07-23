@@ -100,7 +100,7 @@ export default function Socket({ messages }: SocketProps) {
 
   const handleDelete = async (id: number) => {
     try {
-      await axios.delete(`http://localhost:3001/message/${id}`, {
+      await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/message/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

@@ -31,7 +31,7 @@ export function AddRoomsComponent() {
 
     try {
         await axios.post(
-        "http://localhost:3001/rooms",
+        `${process.env.NEXT_PUBLIC_API_URL}/rooms`,
         { email },
         {
             headers: {

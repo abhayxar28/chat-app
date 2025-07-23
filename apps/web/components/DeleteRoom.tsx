@@ -26,7 +26,7 @@ export default function DeleteRoom(){
     const handleDelete = async()=>{
         setLoading(true);
         try{
-            const res = await axios.delete(`http://localhost:3001/rooms/${activeRoomId}`, {
+            const res = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/rooms/${activeRoomId}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }

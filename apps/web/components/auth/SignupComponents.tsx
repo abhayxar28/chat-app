@@ -28,7 +28,7 @@ export default function SignupComponent() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post("http://localhost:3001/signup", {
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/signup`, {
         name,
         email,
         password,

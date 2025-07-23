@@ -24,7 +24,7 @@ export default function ChatComponents() {
     setLoading(true);
     try {
       const res = await axios.get(
-        `http://localhost:3001/messages/${activeRoomId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/messages/${activeRoomId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
