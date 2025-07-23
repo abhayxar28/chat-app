@@ -33,18 +33,22 @@ router.post('/', async (req: AuthenticatedRequest, res: Response) => {
         },
       },
       include: {
-        participants: true,
+        participants: {
+          select: {
+            userId: true,
+          },
+        },
       },
     });
 
-    if (
-      existingRoom &&
-      existingRoom.participants.length === 2 &&
-      existingRoom.participants.some(p => p.userId === adminId) &&
-      existingRoom.participants.some(p => p.userId === participantId)
-    ) {
-      return res.status(400).json({ error: "Room already exists" });
+    if (existingRoom) {
+      return res.status(400).json({
+        message: "Room already exists with this user",
+        room: existingRoom
+      });
     }
+
+    
 
     const newRoom = await prisma.room.create({
       data: {
