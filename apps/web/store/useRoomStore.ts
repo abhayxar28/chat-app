@@ -24,7 +24,7 @@ export const useRoomsStore = create<RoomsStore>((set) => ({
   fetchRooms: async () => {
     set({ loading: true });
     try {
-      const res = await axios.get("http://localhost:3001/rooms", {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/rooms`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
