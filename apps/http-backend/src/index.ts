@@ -5,7 +5,6 @@ import cors from 'cors';
 import userRoutes from './routes/user';
 import messageRoutes from './routes/messages';
 
-const PORT = 3001
 const app = express();
 
 app.use(express.json());
@@ -16,6 +15,4 @@ app.use('/api/v1/rooms', authenticateJWT, roomRoutes)
 app.use('/api/v1/messages', authenticateJWT, messageRoutes)
 
 
-app.listen(PORT, ()=>{
-    console.log('server running on port 3001')
-})
+module.exports = app; 
