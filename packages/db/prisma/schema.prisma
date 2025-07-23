@@ -49,6 +49,7 @@ model Chat{
   id        Int       @id @default(autoincrement())
   message   String 
   userId    String
+  like      Int?       @default(0)
   roomId    Int
   room      Room      @relation(fields: [roomId], references: [id])
   user      User       @relation(fields: [userId], references: [id])

@@ -133,7 +133,8 @@ app.get('/rooms', authenticateJWT, async(req: AuthenticatedRequest, res: Respons
                 select: {
                     id: true,
                     message: true,
-                    userId: true
+                    userId: true,
+                    like: true
                 }
             },
             participants: {
@@ -165,7 +166,8 @@ app.get('/messages/:roomId', authenticateJWT, async(req: AuthenticatedRequest, r
             id: true,
             message: true,
             userId: true,
-            roomId: true        
+            roomId: true ,
+            like: true     
         }
     })
     return res.json({message});

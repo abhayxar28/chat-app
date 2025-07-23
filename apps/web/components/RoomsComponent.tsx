@@ -8,6 +8,7 @@ import { useRoomsStore } from "@/store/useRoomStore";
 import { useRouter } from "next/navigation";
 import DeleteRoom from "./DeleteRoom";
 import { ModeToggle } from "@/components/ModeToggle";
+import { Logout } from "./Logout";
 
 export default function RoomsComponent() {
   const { rooms, fetchRooms, loading } = useRoomsStore();
@@ -19,8 +20,9 @@ export default function RoomsComponent() {
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       router.push("/signin");
+    }else{
+      fetchRooms();
     }
-    fetchRooms();
   }, []);
 
   const filteredRooms = rooms.filter((room) => {
@@ -37,6 +39,7 @@ export default function RoomsComponent() {
         <div className="flex gap-2 justify-center items-center">
           <ModeToggle />
           <AddRoomsComponent />
+          <Logout />
         </div>
       </div>
 

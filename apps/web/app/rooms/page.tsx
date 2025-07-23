@@ -1,4 +1,3 @@
-"use client";
 
 import ChatComponents from "@/components/ChatComponents";
 import RoomsComponent from "@/components/RoomsComponent";

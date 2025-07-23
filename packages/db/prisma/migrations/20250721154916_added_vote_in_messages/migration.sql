@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Chat" ADD COLUMN     "vote" INTEGER NOT NULL DEFAULT 0;

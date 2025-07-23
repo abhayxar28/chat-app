@@ -11,6 +11,7 @@ export interface MessageType {
   userId: string;
   roomId: number;
   userName: string;
+  like: number;
 }
 
 export default function ChatComponents() {
