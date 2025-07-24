@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import DarkVeil from "./ui/landing";
 import { useEffect, useState } from "react";
+import { Aperture } from "lucide-react";
 
 export default function LandingComponent() {
     const [user, setUser] = useState<string | null>(null);
@@ -19,7 +20,10 @@ export default function LandingComponent() {
 
             <div className="absolute z-20 top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl flex justify-between items-center px-6 py-4 rounded-full border border-white/10 backdrop-blur-md bg-white/5">
                 <div className="font-semibold text-lg flex items-center gap-2">
-                <span className="text-white">⚛️ React Bits</span>
+                    <span className="text-white flex gap-2 justify-center items-center">
+                        <span> <Aperture /></span>
+                        <span>SocketTalk</span>
+                    </span>
                 </div>
                 <div className="flex gap-6 font-medium text-sm text-white/90 justify-center items-center">
                     <Link href="/rooms" className="hover:text-white transition">Room</Link>
